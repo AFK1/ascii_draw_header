@@ -37,13 +37,14 @@ const SDL_Color
   Black_Orange = {100, 50, 0};
 
 
-const int CHARW = 32;
-const int CHARH = 48;
+const int CHARW = 32; // symb width
+const int CHARH = 48; // symb height
 
+//line width
 const int LINEW = (((CHARW/4)+((CHARW%4)!=0))<((CHARH/6)+((CHARH%6)!=0)))?(CHARW/4)+((CHARW%4)!=0):(CHARH/6)+((CHARH%6)!=0);
 
-const int CHARW_IN_SCREEN = 45;
-const int CHARH_IN_SCREEN = 20; // 100x25 resolution in char
+const int CHARW_IN_SCREEN = 45; // number of characters in width
+const int CHARH_IN_SCREEN = 20; // number of characters in height
 
 const int SCREENW = CHARW * CHARW_IN_SCREEN;
 const int SCREENH = CHARH * CHARH_IN_SCREEN; // resolution in px
@@ -51,27 +52,9 @@ const int SCREENH = CHARH * CHARH_IN_SCREEN; // resolution in px
 const int CLEAR_COLOR[4]{0, 0, 0, 255};
 #endif
 
-typedef struct Entity {
-
-  bool thinking   = false;
-
-  V2 pos;
-} Entity;
-
-typedef struct Entitys {
-  Entity* entity[CHARW_IN_SCREEN*CHARH_IN_SCREEN];
-  int len = 0;
-} Entitys;
-
 typedef struct App{
   SDL_Renderer *renderer;
   SDL_Window *window;
 } App;
-
-static enum map_state {
-  none = 0,
-  wall = 1,
-  path = 2,
-} map_state;
 
 #endif

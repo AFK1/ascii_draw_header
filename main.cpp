@@ -100,7 +100,7 @@ int main(int argc, char* argv[]) { // if windows - main() => WinMain()
 
     draw_line(Whiteless, 0,0,10,0);               // draw line
     draw_rect_char(dot_texture, 1, 1, 8, 3);      // draw all "."
-    erase_char(2,2);                              // erase "."
+    erase_char(2,2);                              // erase one "."
     draw_char(player_texture, 15, 10);            // draw "@"
     draw_back(Black_Blue, 10, 10);                // draw bg of "!"
     draw_char(quest_texture, 10, 10);             // draw "!"
