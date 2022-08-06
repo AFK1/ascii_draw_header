@@ -10,13 +10,9 @@
 extern App app;
 extern TTF_Font *font;
 extern V2 contex_menu_pos;
-extern bool contex_menu_content[8];
 
 SDL_Texture* renderText(const char *message, SDL_Color color){
   SDL_Surface *surf = TTF_RenderText_Solid(font, message, color);
-  if (surf == nullptr){
-    return nullptr;
-  }
   SDL_Texture *texture = SDL_CreateTextureFromSurface(app.renderer, surf);
   SDL_FreeSurface(surf);
   return texture;
@@ -90,6 +86,20 @@ void draw_contex_menu(){
   draw_line(Grey, contex_menu_pos.x+1, contex_menu_pos.y+1, 0, 4);
   draw_line(Grey, contex_menu_pos.x+1, contex_menu_pos.y+5, 9, 0);
   draw_line(Grey, contex_menu_pos.x+10, contex_menu_pos.y+1, 0, 4);
+}
+
+void draw_init(){
+  SDL_Init(SDL_INIT_EVERYTHING);
+  IMG_Init(IMG_INIT_PNG | IMG_INIT_JPG);
+  TTF_Init();
+
+  SDL_ShowCursor(SDL_DISABLE);
+}
+
+void draw_exit(){
+  SDL_DestroyWindow(app.window);
+  TTF_CloseFont(font);
+  SDL_Quit();
 }
 
 #endif
