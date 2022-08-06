@@ -23,7 +23,7 @@ TTF_Font *font;
 // Example function
 void open_contex_menu(){
   contex_menu_size.x = 5;
-  contex_menu_size.y = 2;
+  contex_menu_size.y = 3;
   contex_menu = true;
   contex_menu_pos.x = curs_x / CHARW;
   contex_menu_pos.y = curs_y / CHARH;
@@ -106,7 +106,7 @@ int main(int argc, char* argv[]) { // if windows - main() => WinMain()
     draw_char(quest_texture, 10, 10);             // draw "!"
 
     if (contex_menu)
-      draw_contex_menu();                         // draw context menu
+      draw_contex_menu(contex_menu_pos, contex_menu_size);// draw context menu
 
     draw_back(White, curs_x/CHARW, curs_y/CHARH); // draw cursor
 

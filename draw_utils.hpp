@@ -80,12 +80,12 @@ void draw_string(SDL_Texture* texture, const char* message, int x, int y){
   draw_texture(texture, CHARW*x,CHARH*y,CHARW*strlen(message),CHARH);
 }
 
-void draw_contex_menu(){
-  draw_rect_back(Black_Blue, contex_menu_pos.x+1, contex_menu_pos.y+1, 10, 5);
-  draw_line(Grey, contex_menu_pos.x+1, contex_menu_pos.y+1, 9, 0);
-  draw_line(Grey, contex_menu_pos.x+1, contex_menu_pos.y+1, 0, 4);
-  draw_line(Grey, contex_menu_pos.x+1, contex_menu_pos.y+5, 9, 0);
-  draw_line(Grey, contex_menu_pos.x+10, contex_menu_pos.y+1, 0, 4);
+void draw_contex_menu(V2 contex_menu_pos, V2 contex_menu_size){
+  draw_rect_back(Black_Blue, contex_menu_pos.x+1, contex_menu_pos.y+1, contex_menu_size.x, contex_menu_size.y);
+  draw_line(Grey, contex_menu_pos.x+1, contex_menu_pos.y+1, contex_menu_size.x-1, 0);
+  draw_line(Grey, contex_menu_pos.x+1, contex_menu_pos.y+1, 0, contex_menu_size.y-1);
+  draw_line(Grey, contex_menu_pos.x+1, contex_menu_pos.y+contex_menu_size.y, contex_menu_size.x-1, 0);
+  draw_line(Grey, contex_menu_pos.x+contex_menu_size.x, contex_menu_pos.y+1, 0, contex_menu_size.y-1);
 }
 
 void draw_init(){
