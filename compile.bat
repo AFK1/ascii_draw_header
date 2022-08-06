@@ -1,0 +1,1 @@
+clang++ -std=c++11 main.cpp -o out.exe -I./includes -L./libs -lSDL2main -lSDL2 -lSDL2_ttf -lSDL2_image -Xlinker /subsystem:windows
