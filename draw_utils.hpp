@@ -9,7 +9,6 @@
 
 extern App app;
 extern TTF_Font *font;
-extern V2 contex_menu_pos;
 
 SDL_Texture* renderText(const char *message, SDL_Color color){
   SDL_Surface *surf = TTF_RenderText_Solid(font, message, color);
